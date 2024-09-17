@@ -6,13 +6,19 @@ const airports = require('./airports')
 const port = process.env.PORT || 3000;
 
 var corsOptions = {
-    origin: ["https://tasahel.com.eg","http://127.0.0.1:5500"],
-    credentials: true
-  }
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204
+  };
+
 app.use(cors(corsOptions));
 
+// Handle preflight requests (OPTIONS)
+app.options('*', cors(corsOptions));  // This will handle all OPTIONS requests
+
 app.get("/api/airports",(req,res)=>{
-    res.json(airports)
+    res.json(airports);
 });
 
 app.listen(port,()=>{
