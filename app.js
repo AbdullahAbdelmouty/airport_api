@@ -6,8 +6,8 @@ const airports = require('./airports')
 const port = process.env.PORT || 3000;
 
 var corsOptions = {
-    origin: 'https://tasahel.com.eg',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    origin: ["https://tasahel.com.eg","http://127.0.0.1:5500"],
+    credentials: true
   }
 app.use(cors(corsOptions));
 
