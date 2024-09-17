@@ -6,11 +6,11 @@ const airports = require('./airports')
 const port = process.env.PORT || 3000;
 
 var corsOptions = {
-    "origin": "*",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    "preflightContinue": true,
-    "optionsSuccessStatus": 204
-  };
+    origin: ["https://tasahel.com.eg", "http://127.0.0.1:5500"],
+    methods: ['GET', 'POST', 'OPTIONS'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization', 'If-Match', 'If-None-Match'] // Add other precondition headers if needed
+};
 
 app.use(cors(corsOptions));
 
