@@ -12,10 +12,17 @@ var corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization', 'If-Match', 'If-None-Match'] // Add other precondition headers if needed
 };
 
-app.use(cors(corsOptions));
 
-// Handle preflight requests (OPTIONS)
-app.options('*', cors(corsOptions));  // This will handle all OPTIONS requests
+app.options('*', (req, res) => {
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, If-Match, If-None-Match');
+    res.sendStatus(204);  // Respond with 'No Content'
+});
+
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
 
 app.get("/api/airports",(req,res)=>{
     res.json(airports);
