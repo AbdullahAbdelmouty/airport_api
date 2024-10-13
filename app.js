@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const airportRoutes = require('./routes/airport');
-const airports = require('./airports')
+const airports = require('./airports');
+const countries = require('./countries/_combined/world.json')
 const port = process.env.PORT || 3000;
 
 // var corsOptions = {
@@ -46,6 +47,9 @@ app.options('*', (req, res) => {
 app.get("/api/airports",(req,res)=>{    
     res.json(airports);
 });
+app.get("/api/countries",(req,res)=>{
+    res.json(countries);
+})
 
 app.listen(port,()=>{
     console.log("is run");
