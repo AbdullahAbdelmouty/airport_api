@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const airportRoutes = require('./routes/airport');
 const airports = require('./airports');
-const countries = require('./world');
+const countries = require('./countries');
 const port = process.env.PORT || 3000;
 
 // var corsOptions = {
@@ -43,14 +43,13 @@ app.options('*', (req, res) => {
     res.sendStatus(204);  // Return OK for preflight request
 });
 
-app.use(express.json());
 
 app.get("/api/airports",(req,res)=>{    
     res.json(airports);
 });
 
 app.get("/api/countries",(req,res)=>{
-    res.json(countries)
+    res.json({msg:"msg"})
 })
 
 app.listen(port,()=>{
