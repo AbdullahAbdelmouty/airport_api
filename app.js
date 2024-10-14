@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const airportRoutes = require('./routes/airport');
 const airports = require('./airports');
-const countries = require('./countries/_combined/world.json');
+const countries = require('./world');
 const port = process.env.PORT || 3000;
 
 // var corsOptions = {
