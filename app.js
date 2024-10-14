@@ -47,7 +47,9 @@ app.options('*', (req, res) => {
 app.get("/api/airports",(req,res)=>{    
     res.json(airports);
 });
-
+app.get("/api/airport",(req,res)=>{    
+    res.json(countries);
+});
 app.get("/api/countries",(req,res)=>{
     res.json({msg:"msg"})
 })
