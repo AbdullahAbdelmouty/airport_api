@@ -47,11 +47,9 @@ app.options('*', (req, res) => {
 app.get("/api/airports",(req,res)=>{    
     res.json(airports);
 });
-app.get("/api/v1/airport",(req,res)=>{    
-    res.json(countries);
-});
-app.get("/api/v1/countries",(req,res)=>{
-    res.json({msg:"msg"})
+
+app.get("/api/countries",(req,res)=>{
+    res.json(countries)
 })
 
 app.listen(port,()=>{
