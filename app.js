@@ -43,6 +43,7 @@ app.options('*', (req, res) => {
     res.sendStatus(204);  // Return OK for preflight request
 });
 
+app.use(express.json());
 
 app.get("/api/airports",(req,res)=>{    
     res.json(airports);
