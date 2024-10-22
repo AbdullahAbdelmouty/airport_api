@@ -14,7 +14,7 @@ const port = process.env.PORT || 3000;
 // };
 
 var corsOptions = {
-    origin: ["https://tasahel.com.eg", "http://127.0.0.1:5500"],
+    origin: ["https://tasahel.com.eg", "https://www.tasahel.com.eg/","http://127.0.0.1:5500"],
     methods: ['GET', 'POST', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']  // No need for If-Match/If-None-Match
